@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "2c4beb29-4695-420d-a310-21089ecddc03",
+		"name": "EdSoap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetWSDL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9999/ws/hello?wsdl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"hello"
+					],
+					"query": [
+						{
+							"key": "wsdl",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SOAPRequest  Greeting operation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" ?>\r\n\t<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n\t\t<S:Body>\r\n\t\t\t<ns2:greeting xmlns:ns2=\"http://ws.codehub.gr/\">\r\n\t\t\t\t<arg0>Ioannis</arg0>\r\n\t\t\t</ns2:greeting>\r\n\t\t</S:Body>\r\n\t</S:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SOAPRequest    operation echoString",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" ?>\r\n\t<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n\t\t<S:Body>\r\n\t\t\t<ns2:echoString xmlns:ns2=\"http://ws.codehub.gr/\">\r\n\t\t\t\t<arg0>Andreas</arg0>\r\n                <PurchaseName> Georgios</PurchaseName>\r\n\t\t\t</ns2:echoString>\r\n\t\t</S:Body>\r\n\t</S:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SOAPRequest  operation emptyParameterMethod",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" ?>\r\n\t<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n\t\t<S:Body>\r\n\t\t\t<ns2:emptyParameterMethod xmlns:ns2=\"http://ws.codehub.gr/\" />\r\n \r\n\t\t</S:Body>\r\n\t</S:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SOAPRequest  operation with an error",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" ?>\r\n\t<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n\t\t<S:Body>\r\n\t\t\t<ns2:hello xmlns:ns2=\"http://ws.codehub.gr/\">\r\n\t\t\t\t<arg0>Ioannis</arg0>\r\n\t\t\t</ns2:hello>\r\n\t\t</S:Body>\r\n\t</S:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9999/ws/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"ws",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
